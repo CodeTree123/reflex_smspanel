@@ -31,16 +31,5 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    // 'google' => [
-    //     'client_id' => '542634395595-5slt4drl1pn1dooeduhn77a6tv4jbna6.apps.googleusercontent.com',
-    //     'client_secret' => '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',
-    //     'redirect' => 'https://reflexdn.com/google/callback',
-    // ],
-    
-    // 'google' => [
-    //     'client_id' => '265662751356-6vmvnpcbvo5g45nfesmikv61fnum79v5.apps.googleusercontent.com',
-    //     'client_secret' => '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',
-    //     'redirect' => 'https://localhost/google/callback',
-    // ],
 
 ];
