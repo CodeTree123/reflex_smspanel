@@ -44,39 +44,27 @@ use Illuminate\Support\Str;
 
 class MainController extends Controller
 {
-    function send_sms($in_phone, $in_textmessage)
+    function send_sms($mobile, $msg)
     {
-
-        $url = "https://login.esms.com.bd/api/v3/sms/send";
-
-        $curl = curl_init($url);
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_POST, true);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-        $headers = array(
-            "Accept: application/json",
-            "Authorization: Bearer 322|scdKHgxPVQGKO81X6GIe1Afc30YUlEx2KjtgjA5t",
-            "Content-Type: application/json",
-            // "type: plain",
-        );
-        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-
+        //dd($mobile, $msg);
+        $url = "https://msg.elitbuzz-bd.com/smsapi";
         $data = [
-            'recipient' => '88' . $in_phone,
-            'sender_id' => '8809601003775',
-            'message' => urldecode($in_textmessage),
+            "api_key" => "C2009043664c759d2d2791.73075139",
+            "type" => "unicode",
+            "contacts" => "88" . $mobile,
+            "senderid" => "8801844502238",
+            "msg" => " স্বাগতম " . $msg,
         ];
-
-        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
-
-        //for debug only!
-        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-
-        $resp = curl_exec($curl);
-        curl_close($curl);
-        return $resp;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        //dd($response);
+        return $response;
     }
 
     public function patient_age($dob)
@@ -191,7 +179,7 @@ class MainController extends Controller
                             return response()->json(['error' => 'Invalid input'], 400);
                         }
 
-                        $message = "নিবন্ধনের জন্য স্বাগতম।" . $patientName;
+                        $message = "নিবন্ধনের জন্য।" . $patientName;
                         //dd($this->send_sms($patientMobile, $message));
                         try {
                             $response = $this->send_sms($patientMobile, $message);
@@ -1387,7 +1375,7 @@ class MainController extends Controller
                         return response()->json(['error' => 'Invalid input'], 400);
                     }
 
-                    $message = $patientName . "পেমেন্ট" . $request->tp_amount . "পরিশোধ" . "আপনার বকেয়া পেমেন্ট" . $due;
+                    $message = $patientName . " " . "পেমেন্ট" . " " . $request->tp_amount . " " . "পরিশোধ" . " " . "আপনার বকেয়া পেমেন্ট" . " " . $due;
                     //dd($this->send_sms($patientMobile, $message));
                     try {
                         $response = $this->send_sms($patientMobile, $message);
@@ -1396,7 +1384,7 @@ class MainController extends Controller
                         if (isset($responseDecoded['status']) && $responseDecoded['status'] == 'error') {
                             return response()->json(['error' => 'Failed to send SMS', 'details' => $responseDecoded['message']], 500);
                         }
-                        $smsBalance->sms - 1;
+                        $smsBalance->sms -= 1;
                         $smsBalance->save();
                         return response()->json(['message' => 'SMS sent successfully']);
                     } catch (\Exception $e) {
