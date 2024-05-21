@@ -1,0 +1,181 @@
+.left-one-title,
+.left-one-text,
+.event_title,
+.event_label {
+    font-size: 12.5px;
+}
+
+.left-one-box-first i {
+    color: #0cc989;
+}
+
+.left-one-box-second i {
+    color: #e8a555;
+}
+
+.left-one-box-third i {
+    color: #ff6934;
+}
+
+.bg-orange {
+    background-color: #ff6934;
+}
+
+.bg-light-grey {
+    background-color: #d9d9d9;
+}
+
+.btn-orange {
+    background-color: #ff6934 !important;
+    color: #fff !important;
+}
+
+.forum .complete a {
+    transition: all linear .2s;
+}
+
+.forum .complete a:hover {
+    background-color: #d6d6d6;
+    color: #fff;
+}
+
+.bg-low-orange {
+    background-color: #5a4f43;
+}
+
+.text-orange {
+    color: #b3844d;
+}
+
+.bg-low-brown {
+    background-color: #473e3b;
+}
+
+.text-bright-orange {
+    color: #ed8762;
+}
+
+.bg-low-blue {
+    background-color: #444f5f;
+}
+
+.text-bright-blue {
+    color: #5d95e8;
+}
+
+.side_icon_size {
+    padding: 14px;
+}
+
+.side_icon_size1 {
+    padding: 14px 21px;
+}
+
+.side_icon_size2 {
+    padding: 14px 17px;
+}
+
+.favourite_icon {
+    width: 30px;
+    height: 35px;
+}
+
+.post_user_name {
+    font-size: 15px;
+}
+
+.post_time{
+    font-size: 11px;
+    font-style: italic;
+}
+
+.comment_edit i,
+.comment_delete i{
+    font-size: 11px;
+}
+
+.post_title,
+.event_title_head {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.intarect_font {
+    font-size: 12px;
+}
+
+.comment_img {
+    width: 90px;
+}
+
+.comment_body {
+    min-width: 30%;
+    max-width: 80%;
+}
+
+.comment_bg {
+    background-color: #e6e9ed;
+}
+
+.post_user_comment {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.post_comment {
+    font-size: 13px;
+    font-weight: 100;
+    margin-top: .25rem;
+}
+
+.event_action_side {
+    font-size: 12px !important;
+}
+
+.event_action:hover,
+.event_action_side:hover {
+    background-color: #212529;
+    color: #fff;
+}
+
+.event_action_active {
+    background-color: #212529;
+    color: #fff;
+    pointer-events: none;
+}
+
+.admin-tutorial-container {
+    position: relative;
+    padding-bottom: 13.25% !important; /* 16:9 */
+    /*padding-bottom: 56.25%; !* 16:9 *!*/
+    height: 0;
+}
+
+.tutorial-container {
+    position: relative;
+    padding-bottom: 67.25% !important;
+    height: 0;
+    width: 100%;
+}
+
+.admin-tutorial-container iframe,
+.tutorial-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.tutorialTitle {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: justify;
+}
+
+.tutorialBody {
+    font-size: 15px;
+    font-weight: 300;
+    font-style: italic;
+    text-align: justify;
+}
